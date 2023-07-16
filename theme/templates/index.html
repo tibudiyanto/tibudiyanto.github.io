@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block content %}
+<section class="h-full flex flex-col justify-evenly">
+  <div>
+    <div class="justify-center flex">
+      <div
+        class="border border-black border-solid w-1/2 h-20 flex flex-col items-center justify-center"
+      >
+        {% block content_title %}
+        <h1 class="border-0 font-normal text-center">General Information</h1>
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+
+  <div class="">
+    <h2 class="mb-4 border-b border-solid border-black">Hello:</h2>
+    <p class="prose max-w-none">
+      Greetings! My name is Theo Budiyanto. I grew up in Indonesia, before I
+      made my way and graduated from UC Berkeley. Then, I had a brief stint
+      working as a Software engineer in Bay Area before finally coming back to
+      where I came from.
+    </p>
+  </div>
+
+  <div class="mb-4">
+    <h2
+      class="text-md uppercase font-bold: border-b border-solid border-black mb-4"
+    >
+      Working Experience:
+    </h2>
+
+    <div class="flex flex-row justify-between mb-1">
+      <div>
+        Backend <a href="https://www.govtechedu.id/">GovTech Edu</a>{" "}
+      </div>
+      <div>2023</div>
+    </div>
+
+    <div class="flex flex-row justify-between mb-1">
+      <div>IndieHacking 🏄</div>
+      <div>2022</div>
+    </div>
+
+    <div class="flex flex-row justify-between mb-1">
+      <div>Backend @ <a href="https://rainbow.me">Rainbow</a></div>
+      <div>2022</div>
+    </div>
+
+    <div class="flex flex-row justify-between mb-1">
+      <div>Cofounder @ <a href="https://delman.io">Delman</a></div>
+      <div>2018-2022</div>
+    </div>
+    <div class="flex flex-row justify-between">
+      <div>Software Engineer @ <a href="https://splunk.com">Splunk</a></div>
+      <div>2016-2018</div>
+    </div>
+  </div>
+
+  {% if articles_page.has_other_pages() %} {% include 'pagination.html' %} {%
+  endif %}
+</section>
+<!-- /#content -->
+{% endblock content %}
