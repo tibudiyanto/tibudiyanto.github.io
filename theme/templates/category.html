@@ -2,11 +2,12 @@
 category{% endblock %} {% block content_title %}
 <h1 class="border-0 font-normal text-center">{{ category }}</h1>
 {% endblock %} {% block content_body %}
-<ol class="">
+<div class="grow basis-2/3">
+<ol>
   {% for article in articles_page.object_list %}
   <li>
-    <article class="border-t-2 border-black min-h-[6em]"> 
-      <header class="justify-between">
+    <article class="flex flex-col min-h-[6em] space-between"> 
+      <header class="justify-between border-b border-black flex flex-row mb-2">
         <h2> 
           <a
             href="{{ SITEURL }}/{{ article.url }}"
@@ -16,14 +17,20 @@ category{% endblock %} {% block content_title %}
             >{{ article.title }}</a
           >
         </h2>
-        <time class="published" datetime="{{ article.date.isoformat() }}">
-          {{ article.locale_date }}
-        </time>
-      </header>
+          <time class="published" datetime="{{ article.date.isoformat() }}">
+            {{ article.date.strftime('%d-%m-%Y') }}
+          </time>
+        </header>
       <div class="entry-content">{{ article.excerpts }}</div>
     </article>
   </li>
 {% endfor %}
-
 </ol>
+</div>
+
+{% if articles_page.has_other_pages() %}
+    {% include 'pagination.html' %}
+{% endif %}
+</section>
+
  {% endblock %}
