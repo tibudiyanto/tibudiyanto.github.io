@@ -3,6 +3,7 @@ SITENAME = 'tibudiyanto.club'
 SITEURL = ''
 
 PATH = 'content'
+OUTPUT_PATH = 'docs/'
 THEME = 'theme'
 
 TIMEZONE = 'Asia/Jakarta'
