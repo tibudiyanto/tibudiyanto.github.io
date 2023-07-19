@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <title>tibudiyanto.club - One Click Checkout</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Pelican" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+           <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio,line-clamp"></script>
+    <style type="text/tailwindcss">
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      @font-face {
+        font-family: "Berkeley Mono";
+        src: url("/theme/BerkeleyMono-Regular.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @layer base {
+        html {
+          font-family: Berkeley Mono, system-ui, monotype;
+        }
+        a {
+          @apply underline text-stone-800 visited:text-stone-400 underline-offset-2;
+        }
+
+        img {
+          @apply mx-auto;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+          @apply uppercase font-bold mb-0;
+        }
+      }
+    </style>
+       </head>
+
+  <body class="px-8 pt-4 container mx-auto w-screen md:w-4/5 lg:w-2/5 min-h-screen flex flex-col justify-between">
+      <header class="grow-0 shrink-0">
+        <div
+          class="flex flex-row content-between border-b-2 border-solid border-black pb-1 mb-2"
+        >
+          <div class="container font-bold">
+            <h1 class="border-0">tibudiyanto.club</h1>
+            <h2 class="border-0">codes, posts, and Core Dumps</h2>
+          </div>
+          <div class="flex flex-col justify-end text-right">
+            <a href="/">Home</a>
+            <a href="/category/blog">Blog</a>
+          </div>
+        </div>
+      </header>
+      <main class="flex flex-col grow">
+<header class="py-8 items-center w-content mx-auto w-full">
+  <div
+    class="border border-black border-solid w-1/2 h-20 mx-auto flex flex-col items-center justify-center p-4"
+  >
+    <h1 class="entry-title border-0 font-normal text-center">
+      One Click Checkout
+    </h1>
+
+  </div>
+</header>
+
+<article class="prose mb-2"><p>My wife runs a small e-commerce shop via Shopify and every single day there is at least one person asking whether they are on Tokopedia or Shopee. She answers no and more often than not, it instantly makes them not wanting to purchase. Upon deeper look, lots of people doesn't like putting in their address into some random online store. You read it right, they don't want to put the address, not the payment info. That's gotta be one of the most annoying problem that e-commerce site owner has ever faced.</p>
+<p>That is exactly the problem that one click checkout services are trying to solve. If you never heard of one click checkout, it is basically democratizing that Amazon's "1-Click" feature: a service that wraps payment gateway and also saves all your information like shipping address and payment info. E-commerce apps / sites then integrate this into their payment flow so potential buyers now can just login into their "one click service" account and all their info is there. I think the idea is wonderful, but in reality it seems pretty hard to do.</p>
+<p>While I really want this type of product to succeed, I also think it is a classic example of this <a href="https://xkcd.com/927/">XCKD</a> comic. It works really well if you already have the data in the first place, and even better if lots of shop are already using your service. I wish Xendit or Midtrans is doing this; in my opinion they are in the best position to build this.</p></article>
+
+<div class="flex flex-row justify-between italic text-sm">
+  <time class="published" datetime="2022-12-15T00:00:00+07:00">
+    Thu 15 December 2022
+  </time>
+   <div class="category">
+    Category:
+    <a href="/category/blog.html"
+      >Blog</a
+    >
+  </div>
+</div>
+
+</main>
+      <footer>
+        <div
+          class="flex flex-row content-between border-t-2 border-solid border-black py-8 mt-4"
+        >
+          <div class="container font-bold">
+            <h1 class="border-0">MADE FROM SUB 🇮🇩</h1>
+          </div>
+          <div class="flex flex-col justify-end text-right"></div>
+        </div>
+      </footer>
+  </body>
+</html>
