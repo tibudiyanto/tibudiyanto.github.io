@@ -1,8 +1,29 @@
-{% extends "index.html" %}
+{% extends "index.html" %} {% block title %}{{ SITENAME }} - {{ category }}
+category{% endblock %} {% block content_title %}
+<h1 class="border-0 font-normal text-center">{{ category }}</h1>
+{% endblock %} {% block content_body %}
+<ol class="">
+  {% for article in articles_page.object_list %}
+  <li>
+    <article class="border-t-2 border-black min-h-[6em]"> 
+      <header class="justify-between">
+        <h2> 
+          <a
+            href="{{ SITEURL }}/{{ article.url }}"
+            rel="bookmark"
+            title="Permalink to {{ article.title|striptags }}"
+            class="no-underline"
+            >{{ article.title }}</a
+          >
+        </h2>
+        <time class="published" datetime="{{ article.date.isoformat() }}">
+          {{ article.locale_date }}
+        </time>
+      </header>
+      <div class="entry-content">{{ article.excerpts }}</div>
+    </article>
+  </li>
+{% endfor %}
 
-{% block title %}{{ SITENAME }} - {{ category }} category{% endblock %}
-
-{% block content_title %}
-<h1>Articles in the {{ category }} category</h1>
-{% endblock %}
-
+</ol>
+ {% endblock %}
