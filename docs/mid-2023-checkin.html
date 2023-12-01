@@ -37,43 +37,48 @@
         h4 {
           @apply uppercase font-bold mb-0;
         }
+        .post {
+          h1,
+          h2,
+          h3,
+          h4 {
+            @apply underline;
+          }
+        }
       }
     </style>
-     <meta property="og:type" content="article" />
-<meta property="og:url" content="/mid-2023-checkin.html" />
-<meta property="og:title" content="Mid 2023 Checkin" />
-<meta property="og:description" content="It's been awhile. I want to share some technical things that I do that “for lack of a better word” sparks joy. Incremental View Maintenance Let’s face it, aggregate is slow in OLTP databases...." />
-<meta property="og:image" content="/images/opengraph-default.jpg" />
+          <meta property="og:type" content="article" />
+    <meta property="og:url" content="/mid-2023-checkin.html" />
+    <meta property="og:title" content="Mid 2023 Checkin" /> <meta property="og:description"
+    content="It's been awhile. I want to share some technical things that I do that “for lack of a better word” sparks joy. Incremental View Maintenance Let’s face it, aggregate is slow in OLTP databases...." />
+    <meta
+      property="og:image"
+      content="/images/opengraph-default.jpg"
+    />
   </head>
 
   <body class="px-8 pt-4 container mx-auto w-screen md:w-4/5 lg:w-2/5 min-h-screen flex flex-col justify-between">
-      <header class="grow-0 shrink-0">
-        <div
-          class="flex flex-row content-between border-b-2 border-solid border-black pb-1 mb-2"
-        >
-          <div class="container font-bold">
-            <h1 class="border-0">tibudiyanto.club</h1>
-            <h2 class="border-0">codes, posts, and Core Dumps</h2>
-          </div>
-          <div class="flex flex-col justify-end text-right">
-            <a href="/">Home</a>
-            <a href="/category/blog">Blog</a>
-          </div>
+    <header class="grow-0 shrink-0">
+      <div class="flex flex-row content-between border-b-2 border-solid border-black pb-1 mb-2">
+        <div class="container font-bold">
+          <h1 class="border-0">tibudiyanto.club</h1>
+          <h2 class="border-0">codes, posts, and Core Dumps</h2>
         </div>
-      </header>
-      <main class="flex flex-col grow">
+        <div class="flex flex-col justify-end text-right">
+          <a href="/">Home</a>
+          <a href="/category/blog">Blog</a>
+        </div>
+      </div>
+    </header>
+    <main class="flex flex-col grow">
 <header class="py-8 items-center w-content mx-auto w-full">
-  <div
-    class="border border-black border-solid w-1/2 h-20 mx-auto flex flex-col items-center justify-center p-4"
-  >
-    <h1 class="entry-title border-0 font-normal text-center">
-      Mid 2023 Checkin
-    </h1>
+  <div class="border border-black border-solid w-1/2 h-20 mx-auto flex flex-col items-center justify-center p-4">
+    <h1 class="entry-title border-0 font-normal text-center">Mid 2023 Checkin</h1>
 
   </div>
 </header>
 
-<article class="prose mb-2"><p>It's been awhile. I want to share some technical things that I do that “for lack of a better word” sparks joy.</p>
+<article class="prose mb-2 post"><p>It's been awhile. I want to share some technical things that I do that “for lack of a better word” sparks joy.</p>
 <h2>Incremental View Maintenance</h2>
 <p>Let’s face it, aggregate is slow in OLTP databases. This is why back on the olden days we have an OLAP cube. My beloved postgres has this problem too but then I found this postgres extension <a href="https://github.com/sraoss/pg_ivm">(pg_ivm)</a>. As the name implies, this extension makes your Materialized View updated everytime the underlying data / row is updated.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- instead of</span>
@@ -92,27 +97,21 @@
 <p>In my dayjob, we inherited a legacy laravel 5.1 code to work with. I am mostly incharge of optimizing the slow queries; by slow i mean 2-3 minutes per page slow. This is also my first foray into PHP. So I started measuring things. Enter <a href="https://xdebug.org/docs/install">xdebug</a> With Xdebug we can profile each endpoint / page view and see where exactly is the slowest part of it. Cute find: Laravel 5.1 Route runtime scales linearly with the amount of routes definition. 2000 routes definition bogs down the runtime 20ms lmao. </p></article>
 
 <div class="flex flex-row justify-between italic text-sm">
-  <time class="published" datetime="2023-07-15T00:00:00+07:00">
-    Sat 15 July 2023
-  </time>
+  <time class="published" datetime="2023-07-15T00:00:00+07:00"> Sat 15 July 2023 </time>
    <div class="category">
     Category:
-    <a href="/category/blog.html"
-      >Blog</a
-    >
+    <a href="/category/blog.html">Blog</a>
   </div>
 </div>
 
 </main>
-      <footer>
-        <div
-          class="flex flex-row content-between border-t-2 border-solid border-black py-8 mt-4"
-        >
-          <div class="container font-bold">
-            <h1 class="border-0">MADE FROM SUB 🇮🇩</h1>
-          </div>
-          <div class="flex flex-col justify-end text-right"></div>
+    <footer>
+      <div class="flex flex-row content-between border-t-2 border-solid border-black py-8 mt-4">
+        <div class="container font-bold">
+          <h1 class="border-0">MADE FROM SUB 🇮🇩</h1>
         </div>
-      </footer>
+        <div class="flex flex-col justify-end text-right"></div>
+      </div>
+    </footer>
   </body>
 </html>

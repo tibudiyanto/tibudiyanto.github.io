@@ -1,42 +1,31 @@
-{% extends "base.html" %} {% block html_lang %}{{ article.lang }}{% endblock %}
-{% block title %}{{ SITENAME }} - {{ article.title|striptags }}{% endblock %} {%
-block head %} {{ super() }} {% import 'translations.html' as translations with
-context %} {% if translations.entry_hreflang(article) %} {{
-translations.entry_hreflang(article) }} {% endif %} {% if article.description %}
+{% extends "base.html" %} {% block html_lang %}{{ article.lang }}{% endblock %} {% block title %}{{ SITENAME }} - {{
+article.title|striptags }}{% endblock %} {% block head %} {{ super() }} {% import 'translations.html' as translations
+with context %} {% if translations.entry_hreflang(article) %} {{ translations.entry_hreflang(article) }} {% endif %} {%
+if article.description %}
 <meta name="description" content="{{article.description}}" />
 {% endif %} {% for tag in article.tags %}
 <meta name="tags" content="{{tag}}" />
 {% endfor %} {% endblock %} {% block content %}
 
 <header class="py-8 items-center w-content mx-auto w-full">
-  <div
-    class="border border-black border-solid w-1/2 h-20 mx-auto flex flex-col items-center justify-center p-4"
-  >
+  <div class="border border-black border-solid w-1/2 h-20 mx-auto flex flex-col items-center justify-center p-4">
     {% block content_title %}
-    <h1 class="entry-title border-0 font-normal text-center">
-      {{ article.title }}
-    </h1>
+    <h1 class="entry-title border-0 font-normal text-center">{{ article.title }}</h1>
 
     {% endblock %}
   </div>
 </header>
 
-<article class="prose mb-2">{{ article.content }}</article>
+<article class="prose mb-2 post">{{ article.content }}</article>
 
 <div class="flex flex-row justify-between italic text-sm">
-  <time class="published" datetime="{{ article.date.isoformat() }}">
-    {{ article.locale_date }}
-  </time>
+  <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
   {% if article.modified %}
-  <time class="modified" datetime="{{ article.modified.isoformat() }}">
-    {{ article.locale_modified }}
-  </time>
+  <time class="modified" datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }} </time>
   {% endif %} {% if article.category %}
   <div class="category">
     Category:
-    <a href="{{ SITEURL }}/{{ article.category.url }}"
-      >{{ article.category }}</a
-    >
+    <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
   </div>
   {% endif %}
 </div>
