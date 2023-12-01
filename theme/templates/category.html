@@ -6,7 +6,7 @@ category{% endblock %} {% block content_title %}
 <ol>
   {% for article in articles_page.object_list %}
   <li>
-    <article class="flex flex-col min-h-[6em] space-between"> 
+    <article class="flex flex-col min-h-[3em] space-between"> 
       <header class="justify-between border-b border-black flex flex-row mb-2">
         <h2> 
           <a
@@ -21,7 +21,6 @@ category{% endblock %} {% block content_title %}
             {{ article.date.strftime('%d-%m-%Y') }}
           </time>
         </header>
-      <div class="entry-content">{{ article.excerpts }}</div>
     </article>
   </li>
 {% endfor %}
