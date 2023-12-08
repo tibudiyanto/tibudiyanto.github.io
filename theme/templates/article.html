@@ -16,7 +16,7 @@ if article.description %}
   </div>
 </header>
 
-<article class="prose mb-2 post">{{ article.content }}</article>
+<article class="prose mb-2 post text-justify">{{ article.content }}</article>
 
 <div class="flex flex-row justify-between italic text-sm">
   <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
