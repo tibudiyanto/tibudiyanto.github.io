@@ -7,19 +7,17 @@ category{% endblock %} {% block content_title %}
   {% for article in articles_page.object_list %}
   <li>
     <article class="flex flex-col space-between"> 
-      <header class="flex flex-row mb-1">
-          <time class="published" datetime="{{ article.date.isoformat() }}">
-            {{ article.date.strftime('%d-%m-%Y') }}: 
-          </time>
-        <h2> 
-          <a
-            href="{{ SITEURL }}/{{ article.url }}"
-            rel="bookmark"
-            title="Permalink to {{ article.title|striptags }}"
-            class="underline"
-            >{{ article.title }}</a
-          >
-        </h2>
+      <header class="flex flex-row mb-1 justify-between">
+        <a
+          href="{{ SITEURL }}/{{ article.url }}"
+          rel="bookmark"
+          title="Permalink to {{ article.title|striptags }}"
+          class="underline"
+          >{{ article.title }}</a
+        >
+        <time class="published" datetime="{{ article.date.isoformat() }}">
+          {{ article.date.strftime('%d-%m-%Y') }} 
+        </time>
         </header>
     </article>
   </li>
