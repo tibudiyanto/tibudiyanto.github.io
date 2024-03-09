@@ -80,7 +80,7 @@
   </div>
 </header>
 
-<article class="prose mb-2 post text-justify"><p>It's been awhile. I want to share some technical things that I do that “for lack of a better word” sparks joy.</p>
+<article class="prose mb-2 post"><p>It's been awhile. I want to share some technical things that I do that “for lack of a better word” sparks joy.</p>
 <h2>Incremental View Maintenance</h2>
 <p>Let’s face it, aggregate is slow in OLTP databases. This is why back on the olden days we have an OLAP cube. My beloved postgres has this problem too but then I found this postgres extension <a href="https://github.com/sraoss/pg_ivm">(pg_ivm)</a>. As the name implies, this extension makes your Materialized View updated everytime the underlying data / row is updated.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- instead of</span>
