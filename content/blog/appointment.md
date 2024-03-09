@@ -1,5 +1,5 @@
 Title: Appointment
-Date: 09-03-2024
+Date: 03-09-2024
 Category: Blog
 
 A week ago, I scheduled an appointment to see a dentist. I scheduled it for a workday at noon. I was there on time, and was told to wait. Twenty minutes and an uncomfortable conversation later, the nurse realized that there was a scheduling error. This guy name was in my 'supposed' slot and made it to the clinic earlier than me. They only found this error after backtracking and found my whatsapp message which was earlier than this guy.
