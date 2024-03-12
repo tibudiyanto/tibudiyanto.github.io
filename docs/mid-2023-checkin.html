@@ -73,14 +73,19 @@
       </div>
     </header>
     <main class="flex flex-col grow">
-<header class="py-8 items-center w-content mx-auto w-full">
-  <div class="border border-black border-solid w-1/2 h-20 mx-auto flex flex-col items-center justify-center p-4">
-    <h1 class="entry-title border-0 font-normal text-center">Mid 2023 Checkin</h1>
+<header class="w-content mx-auto w-full items-center py-8">
+    <div
+        class="mx-auto flex h-20 w-1/2 flex-col items-center justify-center border border-solid border-black p-4"
+    >
+        <h1 class="entry-title border-0 text-center font-normal">
+            Mid 2023 Checkin
+        </h1>
 
-  </div>
+    </div>
 </header>
 
-<article class="prose mb-2 post"><p>It's been awhile. I want to share some technical things that I do that “for lack of a better word” sparks joy.</p>
+<article class="prose post mb-2 grow self-center">
+    <p>It's been awhile. I want to share some technical things that I do that “for lack of a better word” sparks joy.</p>
 <h2>Incremental View Maintenance</h2>
 <p>Let’s face it, aggregate is slow in OLTP databases. This is why back on the olden days we have an OLAP cube. My beloved postgres has this problem too but then I found this postgres extension <a href="https://github.com/sraoss/pg_ivm">(pg_ivm)</a>. As the name implies, this extension makes your Materialized View updated everytime the underlying data / row is updated.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- instead of</span>
@@ -96,14 +101,19 @@
 <h2>DuckDB, sqlite-utils</h2>
 <p>Lately I’ve been loving the idea of simple tools like sqlite and duckdb; I reach them frequently in my day job to do basic data wrangling. <a href="https://sqlite-utils.datasette.io/en/stable/installation.html">sqlite-utils</a> is a python lib and also a cli to help you query CSV/Parquet/JSON by loading it into sqlite. In the same spirit <a href="https://duckdb.org">duckdb</a> does the same thing where it can load static files with a slight twist: it is columnar. The duck fucking quack at aggregation. Another plus is that it provides more or less the same dialect as postgresql including much needed aggregation function. Love it!</p>
 <h2>How to Profile PHP code</h2>
-<p>In my dayjob, we inherited a legacy laravel 5.1 code to work with. I am mostly incharge of optimizing the slow queries; by slow i mean 2-3 minutes per page slow. This is also my first foray into PHP. So I started measuring things. Enter <a href="https://xdebug.org/docs/install">xdebug</a> With Xdebug we can profile each endpoint / page view and see where exactly is the slowest part of it. Cute find: Laravel 5.1 Route runtime scales linearly with the amount of routes definition. 2000 routes definition bogs down the runtime 20ms lmao. </p></article>
+<p>In my dayjob, we inherited a legacy laravel 5.1 code to work with. I am mostly incharge of optimizing the slow queries; by slow i mean 2-3 minutes per page slow. This is also my first foray into PHP. So I started measuring things. Enter <a href="https://xdebug.org/docs/install">xdebug</a> With Xdebug we can profile each endpoint / page view and see where exactly is the slowest part of it. Cute find: Laravel 5.1 Route runtime scales linearly with the amount of routes definition. 2000 routes definition bogs down the runtime 20ms lmao. </p>
+</article>
 
-<div class="flex flex-row justify-between italic text-sm">
-  <time class="published" datetime="2023-07-15T00:00:00+07:00"> Sat 15 July 2023 </time>
-   <div class="category">
-    Category:
-    <a href="/category/blog.html">Blog</a>
-  </div>
+<div class="flex flex-row justify-between text-sm italic">
+    <time class="published" datetime="2023-07-15T00:00:00+07:00">
+        Sat 15 July 2023
+    </time>
+     <div class="category">
+        Category:
+        <a href="/category/blog.html"
+            >Blog</a
+        >
+    </div>
 </div>
 
 </main>
