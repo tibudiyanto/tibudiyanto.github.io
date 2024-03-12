@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
-  <head>
+
+<head>
     {% block head %}
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
     <meta charset="utf-8" />
@@ -8,65 +9,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% if FEED_ALL_ATOM %}
     <link
-      href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
-      type="application/atom+xml"
-      rel="alternate"
-      title="{{ SITENAME }} Full Atom Feed"
-    />
+        href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
+        type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
     {% endif %} {% if FEED_ALL_RSS %}
     <link
-      href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}"
-      type="application/rss+xml"
-      rel="alternate"
-      title="{{ SITENAME }} Full RSS Feed"
-    />
+        href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}"
+        type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
     {% endif %} {% if FEED_ATOM %}
-    <link
-      href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}"
-      type="application/atom+xml"
-      rel="alternate"
-      title="{{ SITENAME }} Atom Feed"
-    />
+    <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}"
+        type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
     {% endif %} {% if FEED_RSS %}
-    <link
-      href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}"
-      type="application/rss+xml"
-      rel="alternate"
-      title="{{ SITENAME }} RSS Feed"
-    />
+    <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}"
+        type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
     {% endif %} {% if CATEGORY_FEED_ATOM and category %}
     <link
-      href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}"
-      type="application/atom+xml"
-      rel="alternate"
-      title="{{ SITENAME }} Categories Atom Feed"
-    />
+        href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}"
+        type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
     {% endif %} {% if CATEGORY_FEED_RSS and category %}
     <link
-      href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}"
-      type="application/rss+xml"
-      rel="alternate"
-      title="{{ SITENAME }} Categories RSS Feed"
-    />
+        href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}"
+        type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
     {% endif %} {% if TAG_FEED_ATOM and tag %}
     <link
-      href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}"
-      type="application/atom+xml"
-      rel="alternate"
-      title="{{ SITENAME }} Tags Atom Feed"
-    />
+        href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}"
+        type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
     {% endif %} {% if TAG_FEED_RSS and tag %}
     <link
-      href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}"
-      type="application/rss+xml"
-      rel="alternate"
-      title="{{ SITENAME }} Tags RSS Feed"
-    />
+        href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}"
+        type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
     {% endif %}
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio,line-clamp"></script>
     <style type="text/tailwindcss">
-      @tailwind base;
+        @tailwind base;
       @tailwind components;
       @tailwind utilities;
 
@@ -108,53 +83,51 @@
     {% endblock head %} {% if article is defined %}
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
-    <meta property="og:title" content="{{ article.title | replace("\"", "&quot;") }}" /> <meta property="og:description"
-    content="{{ article.content | striptags | replace("\"", "&quot;") | truncate(196, False, '...') }}" />
-    <meta
-      property="og:image"
-      content="{{ SITEURL }}/images/{% if article.opengraph_image is defined %}{{ article.opengraph_image }}{% else %}opengraph-default.jpg{% endif %}"
-    />
+    <meta property="og:title" content="{{ article.title | replace(" \"", "&quot;" ) }}" />
+    <meta property="og:description" content="{{ article.content | striptags | replace(" \"", "&quot;" ) | truncate(196,
+        False, '...' ) }}" />
+    <meta property="og:image"
+        content="{{ SITEURL }}/images/{% if article.opengraph_image is defined %}{{ article.opengraph_image }}{% else %}opengraph-default.jpg{% endif %}" />
     {% elif page is defined %}
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ SITEURL }}/{{ page.url }}" />
-    <meta property="og:title" content="{{ SITENAME }} - {{ page.title | replace("\"", "&quot;") }}" /> <meta
-    property="og:description" content="{{ page.content | striptags | replace("\"", "&quot;") | truncate(196, False,
-    '...') }}" />
-    <meta
-      property="og:image"
-      content="{{ SITEURL }}/images/{% if page.opengraph_image is defined %}{{ page.opengraph_image }}{% else %}opengraph-default.jpg{% endif %}"
-    />
+    <meta property="og:title" content="{{ SITENAME }} - {{ page.title | replace(" \"", "&quot;" ) }}" />
+    <meta property="og:description" content="{{ page.content | striptags | replace(" \"", "&quot;" ) | truncate(196,
+        False, '...' ) }}" />
+    <meta property="og:image"
+        content="{{ SITEURL }}/images/{% if page.opengraph_image is defined %}{{ page.opengraph_image }}{% else %}opengraph-default.jpg{% endif %}" />
     {% else %}
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ SITEURL }}/{{ output_file }}" />
     <meta property="og:title" content="{{ SITENAME }}" />
     <meta property="og:description" content="tibudiyanto.club" />
     {% endif %}
-  </head>
+</head>
 
-  <body class="px-8 pt-4 container mx-auto w-screen md:w-4/5 lg:w-2/5 min-h-screen flex flex-col justify-between">
+<body class="px-8 pt-4 container mx-auto w-screen max-w-prose min-h-screen flex flex-col justify-between">
     <header class="grow-0 shrink-0">
-      <div class="flex flex-row content-between border-b-2 border-solid border-black pb-1 mb-2">
-        <div class="container font-bold">
-          <a href="{{ SITEURL }}/">
-            <h1 class="border-0 font-normal">{{ SITENAME }}</h1>
-          </a>
-          <h2 class="border-0">codes, posts, and Core Dumps</h2>
+        <div class="flex flex-row content-between border-b-2 border-solid border-black pb-1 mb-2">
+            <div class="container font-bold">
+                <a href="{{ SITEURL }}/">
+                    <h1 class="border-0 font-normal">{{ SITENAME }}</h1>
+                </a>
+                <h2 class="border-0">codes, posts, and Core Dumps</h2>
+            </div>
+            <div class="flex flex-col justify-end text-right">
+                <a href="{{ SITEURL }}/category/blog">Blog</a>
+                <a href="{{ SITEURL }}/category/til">TILs</a>
+            </div>
         </div>
-        <div class="flex flex-col justify-end text-right">
-          <a href="{{ SITEURL }}/category/blog">Blog</a>
-          <a href="{{ SITEURL }}/category/til">TILs</a>
-        </div>
-      </div>
     </header>
     <main class="flex flex-col grow">{% block content %} {% endblock %}</main>
     <footer>
-      <div class="flex flex-row content-between border-t-2 border-solid border-black py-8 mt-4">
-        <div class="container font-bold">
-          <h1 class="border-0">MADE FROM SUB 🇮🇩</h1>
+        <div class="flex flex-row content-between border-t-2 border-solid border-black py-8 mt-4">
+            <div class="container font-bold">
+                <h1 class="border-0">MADE FROM SUB 🇮🇩</h1>
+            </div>
+            <div class="flex flex-col justify-end text-right"></div>
         </div>
-        <div class="flex flex-col justify-end text-right"></div>
-      </div>
     </footer>
-  </body>
+</body>
+
 </html>
